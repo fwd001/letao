@@ -16,7 +16,7 @@
       async: false,
       url: '/employee/checkRootLogin',
       success: function (info) {
-        if (!info.success) {
+        if(!info.success){
           window.location.href = 'login.html'
         }
       }
@@ -38,7 +38,7 @@
     <div class="aside_footer">
       <ul>
         <li>
-          <a class="" href="user.html">
+          <a class="active" href="user.html">
             <span class="glyphicon glyphicon-user"></span> 用户管理员
           </a>
         </li>
@@ -101,8 +101,7 @@
           <h4 class="modal-title">温馨提示</h4>
         </div>
         <div class="modal-body">
-          <p class="text-danger">
-            <span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？</p>
+          <p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

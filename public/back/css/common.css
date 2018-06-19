@@ -1,7 +1,129 @@
 /* 后台全局的css */
+
 .bd_bgc {
-  background-color: #222e32;
+  background-color: #222d32;
 }
+
 .mt_150 {
   margin-top: 150px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.lt_aside {
+  width: 180px;
+  height: 100%;
+  background-color: #222d32;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .7s
+}
+.lt_aside.active {
+  left: -180px;
+}
+
+.lt_aside a {
+  color: #fff;
+}
+
+.lt_aside a:link,
+.lt_aside a:visited,
+.lt_aside a:hover,
+.lt_aside a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.aside_top a {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+  background-color: #367fa9;
+  display: block;
+}
+
+/* 头像区域 */
+
+.aside_center {
+  width: 100%;
+  margin: 30px 0;
+  height: 150px;
+  text-align: center;
+}
+
+.aside_center img {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.aside_center h4 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* 列表区 */
+
+.aside_footer ul li a {
+  display: block;
+  padding-left: 50px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-left: 5px solid transparent;
+}
+.aside_footer a.active {
+  background-color: #1d1f21;
+  border-left: 5px solid #367fa9;
+}
+
+.aside_footer ul .child a {
+  padding-left: 70px;
+}
+
+.child {
+  display: none;
+  /* transition: all 1s linear; */
+}
+
+/* 内容区 */
+
+.lt_right {
+  width: 100%;
+  height: 100%;
+  padding-left: 180px;
+  transition: all .7s;
+}
+.lt_right.active {
+  padding-left: 0;
+}
+.menu_bar {
+  height: 50px;
+  width: 100%;
+  background-color: #3c8dbc;
+  line-height: 50px;
+  padding: 0 20px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.menu_bar a {
+  cursor: pointer;
+  color: #fff
 }
