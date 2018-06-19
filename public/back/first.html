@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
   <script src="lib/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
 
   <script>
     $.ajax({
@@ -46,7 +47,7 @@
           <a href="javascript:;">
             <span class="glyphicon glyphicon-list"></span> 分类商品
           </a>
-          <div style="display: block"  class="child">
+          <div style="display: block" class="child">
             <a class="active" href="first.html">
               一级分类
             </a>
@@ -87,7 +88,22 @@
         </li>
       </ol>
       <div class="lt_content">
-        111
+        <button class="btn btn-default mb_20 btn_addCategroy">添加分类</button>
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th width='20%'>序号</th>
+              <th width='80%'>分类</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 坑 -->
+          </tbody>
+        </table>
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
       </div>
     </div>
 
@@ -115,16 +131,59 @@
     </div>
   </div>
 
+  <!-- 添加分类模态框 -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="form-group">
+              <input name="categoryName" type="text" class="form-control" placeholder="请输入一集分类名称">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary btn_add">确认</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
+  <script type="text/html" id="tpl">
+    {{each rows v i}}
+    <tr>
+      <td>{{(page - 1) * size + 1 + i}}</td>
+      <td>{{v.categoryName}}</td>
+    </tr>
+    {{/each}}
+  </script>
 
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="lib/nprogress/nprogress.js"></script>
+  <script src="lib/artTemplate/template-web.js"></script>
+  <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/first.js"></script>
+  
 
 
   <script>
-    $('form').slideToggle
+    // $('form').on('click', function (e) {
+    //   e.preventDefault
+    // })
+    // $.ajax({
+    //   type: 'post',
+    //   url: '/category/addTopCategory',
+    //   data: $('form').serialize
+    // })
   </script>
 </body>
 
