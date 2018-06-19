@@ -127,3 +127,9 @@ html {
   cursor: pointer;
   color: #fff
 }
+
+.lt_content table td,
+.lt_content table th{
+  text-align: center;
+  vertical-align: middle !important;
+}
