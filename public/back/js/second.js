@@ -36,13 +36,13 @@ $(function () {
         pageSize: 100,
       },
       success: function (info) {
-       $('form .dropdown-menu').html( template('tpl02', info))
+        $('form .dropdown-menu').html(template('tpl02', info))
       }
     })
   })
 
   $('form').bootstrapValidator({
-    excluded: [],//不校验的内容
+    excluded: [], //不校验的内容
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
       invalid: 'glyphicon glyphicon-remove',
@@ -74,8 +74,8 @@ $(function () {
     }
   })
 
-  
-  $('form .dropdown-menu').on('click', 'a',function () {
+
+  $('form .dropdown-menu').on('click', 'a', function () {
     var id = $(this).data('id');
     var txt = $(this).text();
     $('.dropdown_text').text(txt);
@@ -83,28 +83,29 @@ $(function () {
     $('form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
   })
 
-  
+
 
   // 图片上传初始化
   $("#fileupload").fileupload({
-    dataType: 'json', //返回的结果的类型是json
+    // dataType: 'json', //返回的结果的类型是json
     //e :事件对象
     //data: 上传后的结果
-    done: function (e, data) {//图片上传后的回调函数
+    done: function (e, data) { //图片上传后的回调函数
 
-        //获取到地址后，需要干什么？？？？
-        console.log(data.result.picAddr);
-        //修改img_box下的img的src
-        $(".img_box img").attr("src", data.result.picAddr);
+      //获取到地址后，需要干什么？？？？
+      console.log(data);
+      //修改img_box下的img的src
 
-        //给brandLogo赋值
-        $("[name='brandLogo']").val(data.result.picAddr);
+      $(".img_box img").attr("src", data.result.picAddr);
 
-        $('form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
+      //给brandLogo赋值
+      $("[name='brandLogo']").val(data.result.picAddr);
+
+      $('form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
     }
-});
+  });
 
-  $('form').on('success.form.bv', function (e){
+  $('form').on('success.form.bv', function (e) {
     e.preventDefault();
 
     $.ajax({
@@ -112,7 +113,7 @@ $(function () {
       url: '/category/addSecondCategory',
       data: $('form').serialize(),
       success: function (info) {
-        if(info.success) {
+        if (info.success) {
           $('#addModal').modal('hide');
           page = 1;
           render();
