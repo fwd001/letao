@@ -156,10 +156,9 @@ $(function () {
           currentPage = 1;
           render();
 
-
           //3. 重置内容和样式
           $form[0].reset();
-          $form.data("bootstrapValidator").resetForm();
+          $form.data("bootstrapValidator").resetForm(true);
 
           //4. 重置下拉框组件和图片
           $(".dropdown-text").text("请选择一级分类");
