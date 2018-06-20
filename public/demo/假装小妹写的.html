@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>假装小妹写的</title>
+  <style>
+    body {
+      background-color: rgb(232, 234, 241);
+    }
+
+    html {
+      font-size: 50px;
+    }
+
+    .box {
+      padding-top: 1px;
+      width: 100%;
+      font-size: 70px;
+      height: 777px;
+      text-align: center;
+      position: relative;
+    }
+
+    .box div {
+      margin: 50px auto;
+      overflow: hidden;
+      transition: all .2s;
+    }
+
+    .box div:first-child span {
+      float: left;
+    }
+
+    .box div:first-child span:first-child {
+      color: rgb(255, 62, 255);
+    }
+
+    .box div:first-child span:first-child.change {
+      color: rgb(119, 45, 255);
+    }
+
+    .box div:first-child span:last-child {
+      color: rgb(119, 45, 255);
+    }
+
+    .box div:first-child span:last-child.change {
+      color: rgb(255, 62, 255);
+    }
+
+    .name2 {
+      /* color: rgb(173, 5, 173) */
+    }
+
+    .tips {
+      font-size: 16px;
+      font-weight: 100;
+      transform: translateY(-205.7px);
+    }
+
+    .line {
+      width: 120px;
+      height: 167px;
+      border-right: 1px dashed #000;
+      border-radius: 50%;
+      transform: translateY(-114px) translateX(85px) rotate(30deg);
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      font-weight: 100;
+      font-size: 16px;
+      margin: 0 !important;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="name1">
+      <span>夏</span>
+      <span>萱</span>
+    </div>
+    <div class="name2">叶菲</div>
+
+    <div class="line"></div>
+    <div class="tips">
+      试试点击上方字
+    </div>
+    <div class="bottom">
+      ---很久---
+    </div>
+  </div>
+
+  <script>
+    var span1 = document.querySelectorAll('span')[0];
+    var span2 = document.querySelectorAll('span')[1];
+    var name2 = document.querySelector('.name2');
+    var arr = ['rgb(255, 59, 59)', 'rgb(255, 145, 0)', 'rgb(255, 255, 31)', 'rgb(0, 160, 0)', 'lime',
+      'rgb(39, 112, 248)', 'rgb(173, 5, 173)'
+    ]
+    setInterval(function () {
+      span1.classList.toggle('change')
+      span2.classList.toggle('change')
+    }, 200)
+    var count = 0
+    name2.addEventListener('click', function () {
+      if (count >= arr.length) {
+        count = 0
+      }
+      this.style.color = arr[count];
+      count++;
+    })
+
+    window.addEventListener('scroll', function () {
+
+      var scrollTop = window.pageYOffset;
+      console.log(scrollTop);
+
+      if (scrollTop > 15) {
+        name2.style.color = arr[0];
+      }
+      if (scrollTop > 30) {
+        name2.style.color = arr[1];
+      }
+      if (scrollTop > 45) {
+        name2.style.color = arr[2];
+      }
+      if (scrollTop > 60) {
+        name2.style.color = arr[3];
+      }
+      if (scrollTop > 75) {
+        name2.style.color = arr[4];
+      }
+      if (scrollTop > 90) {
+        name2.style.color = arr[5];
+      }
+      if (scrollTop > 105) {
+        name2.style.color = arr[6];
+      }
+    })
+  </script>
+</body>
+
+</html>
