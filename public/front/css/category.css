@@ -1,0 +1,55 @@
+
+.lt_center .cg_l {
+  width: 90px;
+  float: left;
+  /* background-color: #eee; */
+  position: relative;
+  height: 100%;
+}
+
+.lt_center .cg_l ul li {
+  height: 50px;
+  border-right: 1px solid rgb(221, 80, 61);
+  border-bottom: 1px solid rgb(221, 80, 61);
+  text-align: center;
+  line-height: 50px;
+  background-color: rgb(247, 143, 247);
+}
+.lt_center .cg_l ul li.active {
+  border-right: none;
+  background-color: #fff;
+}
+.cg_l li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+
+
+/* 右边 */
+.lt_center .cg_r {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.lt_center .cg_r li {
+  float: left;
+  width: 33.33%;
+}
+.lt_center .cg_r li a {
+  display: block;
+  width: 100%;
+  padding-top: 15px;
+}
+.lt_center .cg_r img {
+  width: 77px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.lt_center .cg_r ul>p {
+  padding-top: 10px;
+}

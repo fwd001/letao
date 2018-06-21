@@ -1,4 +1,5 @@
 $(function () {
+  console.log ($("form").data())
   $('form').bootstrapValidator({
     fields: {
       // 用户名配置
@@ -44,7 +45,7 @@ $(function () {
     }
   })
   var validator = $("form").data('bootstrapValidator');
-
+  // console.log ($("form").data())
   $('form').on('success.form.bv', function (e) {
     e.preventDefault();
     $.ajax({
