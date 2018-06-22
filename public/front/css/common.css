@@ -75,6 +75,12 @@ html, body{
   color: #fff;
   font-size: 20px;
 }
+.lt_footer a.now {
+  color: #7fff00;
+}
+.lt_footer a.now p {
+  color: #7fff00;
+}
 .lt_footer ul li p {
   color: #fff;
   font-size: 12px;
