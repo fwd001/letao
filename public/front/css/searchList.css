@@ -1,0 +1,37 @@
+.lt_sort ul {
+  background-color: #eee;
+}
+.lt_sort ul li{
+  float: left;
+  width: 25%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 12px;
+}
+.lt_sort ul li.now a{ 
+  color: rgb(38, 159, 240);
+}
+input[type='search'] {
+  margin: 0;
+}
+.lt_sort ul li a {
+   color: #666;
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  margin: 122px auto;
+  border: 5px solid rgb(38, 159, 240);
+  animation: zhuan 1s infinite;
+}
+@keyframes zhuan {
+  form {
+    transform: rotate(0deg);
+  }
+  to{ 
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,0 +1,20 @@
+.history-bar {
+  padding: 10px;
+  color: #666;
+  font-size: 14px;
+}
+.history-bar ul {
+  border: 1px dashed #007aff;
+}
+.history-bar ul li {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  border-bottom: 1px dashed #007aff;
+}
+.history-bar ul li:last-child {
+  border-bottom: none;
+}
+.history-bar li span {
+  line-height: 30px;
+}

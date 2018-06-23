@@ -92,4 +92,49 @@ html, body{
   width: 100%;
   /* background-color: #eee; */
   position: relative;
+  /* padding: 10px; */
+}
+
+
+/* 搜索条样式 */
+.lt_center .search-bar {
+  padding: 10px;
+  position: relative;
+}
+.lt_center .search-bar input {
+  border: 1px solid #007aff;
+  padding-right: 55px;
+}
+.lt_center .search-bar button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 0 3px 3px 0;
+}
+
+.lt_product ul {
+  padding: 10px;
+  text-align: center;
+}
+.lt_product ul p {
+  height: 39px;
+}
+.lt_product li {
+  float: left;
+  width: 48%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px
+}
+
+.lt_product li:nth-child(even) {
+  margin-left: 4%;
+}
+
+.lt_product li .oldPrice {
+  color: red;
+}
+
+.lt_product li .price {
+  text-decoration: line-through;
 }

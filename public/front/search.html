@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/category.css">
-  <title>我的乐淘-分类</title>
+  <link rel="stylesheet" href="css/search.css">
+  <title>搜索</title>
 
 </head>
 
@@ -20,27 +20,20 @@
       <a class="mui-pull-left" href="javascript: history.go(-1)">
         <span class="mui-icon mui-icon-back"></span>
       </a>
-      <a class="mui-pull-right" href="search.html">
-        <span class="fa fa-search"></span>
+      <a class="mui-pull-right" href="#">
       </a>
       <h4>乐淘云购</h4>
     </div>
     <!-- 中间内容区 -->
     <div class="lt_center">
-      <div class="cg_l">
-        <div class="mui-scroll-wrapper">
-          <ul class="mui-scroll">
-            <!-- 挖个坑 -->
-
-          </ul>
-        </div>
-      </div>
-      <div class="cg_r">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-              <!-- 2个坑 -->
-            </ul>
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <div class="search-bar">
+            <input type="search" id="" class="" placeholder="请输入搜索关键字">
+            <button class="mui-btn mui-btn-primary">搜索</button>
+          </div>
+          <div class="history-bar">
+            <!-- 挖坑 -->
           </div>
         </div>
       </div>
@@ -55,7 +48,7 @@
           </a>
         </li>
         <li>
-          <a class="now" href="category.html">
+          <a href="category.html">
             <span class="fa fa-bars"></span>
             <p>分类</p>
           </a>
@@ -79,32 +72,33 @@
 
 
   <script type="text/html" id="tpl">
-    {{each rows v i}}
-    <li data-id="{{v.id}}" class="{{i == 0 ? 'active' : ''}}">
-      <a href="javascript:;">{{v.categoryName}}</a>
-    </li>
-    {{/each}}
-  </script>
-
-
-  <script type="text/html" id="tpl02">
-    {{if total == 0}}
-    <p>您选择的菜单没有数据…</p>
+    {{if rows.length == 0}}
+    <p>没有更多历史信息~~</p>
+    {{else}}
+    <div style="margin-bottom: 10px;" class="history-tips mui-clearfix">
+      <div class="mui-pull-left">
+        搜索历史
+      </div>
+      <div class="mui-pull-right fa fa-trash">
+        清空历史
+      </div>
+    </div>
+    <ul>
+      {{each rows v i}}
+      <li>
+        <a href="javascript:;">{{v}}</a>
+        <span data-index="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right btn_delete"></span>
+      </li>
+      {{/each}}
+    </ul>
     {{/if}}
-    {{each rows v i}}
-    <li>
-      <a href="javascript:;">
-        <img src="{{v.brandLogo}}" alt="">
-        <p>{{v.brandName}}</p>
-      </a>
-    </li>
-    {{/each}}
   </script>
+
   <script src="lib/mui/js/mui.js"></script>
   <script src="lib/zepto/zepto.min.js"></script>
   <script src="lib/artTemplate/template-web.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/category.js"></script>
+  <script src="js/search.js"></script>
 </body>
 
 </html>
