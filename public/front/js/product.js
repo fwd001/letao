@@ -52,7 +52,7 @@ $(function () {
         id: id
       },
       success: function (info) {
-        console.log(info);
+        // console.log(info);
 
         $('.lt_center .mui-scroll').html(template('tpl', info));
 
