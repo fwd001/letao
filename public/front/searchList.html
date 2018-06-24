@@ -59,7 +59,7 @@
           <div class="lt_product">
             <ul class="mui-clearfix">
               <!-- 载棵树 -->
-              <div class="loading"></div>
+              <!-- <div class="loading"></div> -->
             </ul>
           </div>
         </div>
@@ -81,13 +81,13 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="cart.html">
             <span class="fa fa-shopping-cart"></span>
             <p>购物车</p>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="user.html">
             <span class="fa fa-user"></span>
             <p>会员中心</p>
           </a>
@@ -99,13 +99,14 @@
 
 
   <script type="text/html" id="tpl">
-    {{if data.length == 0}}
-    <p>没有搜到更多商品</p>
-    {{else}}
+    {{if data.length === 0}}
+    <p>没有搜索到数据</p>
+    {{/if}}
+    
     {{each data v i}}
-    <li>
+    <li data-id='{{v.id}}'>
       <a href="javascript:;">
-        <img src="{{ cAddr}}" alt="">
+        <img src="{{v.pic[0].picAddr}}" alt="">
         <p class="mui-ellipsis-2">{{v.proName}}</p>
         <p>
           <span class="oldPrice">&yen;{{v.oldPrice}}</span>
@@ -115,7 +116,6 @@
       </a>
     </li>
     {{/each}}
-    {{/if}}
   </script>
 
   <script src="lib/mui/js/mui.js"></script>

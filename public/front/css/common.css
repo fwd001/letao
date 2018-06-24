@@ -9,6 +9,10 @@ img {
   width: 100%;
 }
 
+.p-10{
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
 .lt_container {
   width: 100%;
   max-width: 640px;
@@ -100,6 +104,8 @@ html, body{
 .lt_center .search-bar {
   padding: 10px;
   position: relative;
+  z-index: 1;
+  background: #fff;
 }
 .lt_center .search-bar input {
   border: 1px solid #007aff;

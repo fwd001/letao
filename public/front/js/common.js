@@ -7,3 +7,15 @@ mui('.mui-scroll-wrapper').scroll({
 mui('.mui-slider').slider({
   interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
 });
+
+// 获取地址参数对象
+function getSearch() {
+  var txt = location.search.slice(1).split('&');
+  var obj = {};
+  txt.forEach(function (e, i) {
+    var key = e.split('=')[0];
+    var value = e.split('=')[1];
+    obj[key] = value
+  })
+  return obj
+}

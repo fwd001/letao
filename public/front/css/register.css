@@ -1,0 +1,18 @@
+.lt_main {
+  padding: 10px;
+}
+
+.delegete {
+  padding-top: 10px;
+}
+.delegete  div ,
+.delegete  input ,
+.delegete  a {
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+button.disabled{
+  background-color: #999;
+  border-color: #999;
+}

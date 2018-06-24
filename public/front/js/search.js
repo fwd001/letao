@@ -39,30 +39,27 @@ $(function () {
     $('.search-bar input').val('');
     if (txt.length == 0) {
       mui.toast('请输入搜索内容');
-    } else {
-      var arr = getHistory();
-      if (arr.indexOf(txt) > -1) {
-        arr.splice(arr.indexOf(txt), 1);
-      }
-      if (arr.length >= 10) {
-        arr.pop();
-      }
-
-      arr.unshift(txt);
-
-      localStorage.setItem("lt_history", JSON.stringify(arr));
-      // render();
-      location.href = 'searchList.html?key='+txt;
-
+      return;
     }
+    var arr = getHistory();
+    if (arr.indexOf(txt) > -1) {
+      arr.splice(arr.indexOf(txt), 1);
+    }
+    if (arr.length >= 10) {
+      arr.pop();
+    }
+
+    arr.unshift(txt);
+
+    localStorage.setItem("lt_history", JSON.stringify(arr));
+    // render();
+    location.href = 'searchList.html?key='+txt;
   })
 
   // 获取本地存储
   function getHistory() {
     var history = localStorage.getItem('lt_history') || "[]";
     history = JSON.parse(history);
-
-    // console.log(history);
 
     return history
   }
