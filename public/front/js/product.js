@@ -61,6 +61,10 @@ $(function () {
         });
 
         mui('.mui-numbox').numbox()
+        // mui('.mui-scroll-wrapper').scroll({
+        //   indicators: false, //不显示滚动条
+        // });
+        
       }
     })
   }

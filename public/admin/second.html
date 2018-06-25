@@ -5,24 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>超级VIP</title>
+  <title>二级分类页</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
-  <script src="lib/jquery/jquery.min.js"></script>
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
 
-  <script>
-    $.ajax({
-      async: false,
-      url: '/employee/checkRootLogin',
-      success: function (info) {
-        if (!info.success) {
-          window.location.href = 'login.html'
-        }
-      }
-    })
-  </script>
 
 </head>
 
@@ -48,10 +36,10 @@
             <span class="glyphicon glyphicon-list"></span> 分类商品
           </a>
           <div style="display: block" class="child">
-            <a class="active" href="first.html">
+            <a href="first.html">
               一级分类
             </a>
-            <a href="second.html">
+            <a class="active" href="second.html">
               二级分类
             </a>
           </div>
@@ -84,7 +72,7 @@
           <a href="#">分类管理</a>
         </li>
         <li class="active">
-          一级分类
+          二级分类
         </li>
       </ol>
       <div class="lt_content">
@@ -93,8 +81,10 @@
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th width='20%'>序号</th>
-              <th width='80%'>分类</th>
+              <th width='10%'>序号</th>
+              <th width='30%'>一级分类名称</th>
+              <th width='30%'>二级分类名称</th>
+              <th width='30%'>二级分类LOGO</th>
             </tr>
           </thead>
           <tbody>
@@ -139,13 +129,38 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">添加分类</h4>
+          <h4 class="modal-title">添加二级分类</h4>
         </div>
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <input name="categoryName" type="text" class="form-control" placeholder="请输入一集分类名称">
+              <input type="hidden" name="categoryId">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  <span class="dropdown_text">请选择</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                </ul>
+              </div>
             </div>
+
+            <div class="form-group">
+              <input name="brandName" type="text" class="form-control" placeholder="请输入二级分类名称">
+            </div>
+
+            <div class="form-group">
+              <label for="fileupload" class="btn btn-default">上传图片</label>
+              <input type="file" id="fileupload" class="hidden" name="pic1" data-url="/category/addSecondCategoryPic">
+            </div>
+            <div class="form-group img_box">
+              <img src="images/none.png" width="100" height="100">
+              <input type="hidden" name="brandLogo">
+            </div>
+            <div class="form-group">
+              <input type="hidden" name="hot" value="1">
+            </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -161,18 +176,25 @@
     <tr>
       <td>{{(page - 1) * size + 1 + i}}</td>
       <td>{{v.categoryName}}</td>
+      <td>{{v.brandName}}</td>
+      <td>
+        <img src="{{v.brandLogo? v.brandLogo:'images/default.png'}}" alt="" width='50' height="32">
+      </td>
     </tr>
     {{/each}}
   </script>
+  <script type="text/html" id="tpl02">
+    {{each rows v i}}
+    <li>
+      <a data-id='{{v.id}}' tabindex="-1" href="#">{{v.categoryName}}</a>
+    </li>
+    {{/each}}
+  </script>
 
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/nprogress/nprogress.js"></script>
-  <script src="lib/artTemplate/template-web.js"></script>
-  <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-  <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/first.js"></script>
-  
+
+  <script src="lib/requirejs/require.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/second.js"></script>
 
 
   <script>

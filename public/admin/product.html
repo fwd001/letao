@@ -5,24 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>二级分类页</title>
+  <title>商品管理</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
-  <script src="lib/jquery/jquery.min.js"></script>
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
-
-  <script>
-    $.ajax({
-      async: false,
-      url: '/employee/checkRootLogin',
-      success: function (info) {
-        if (!info.success) {
-          window.location.href = 'login.html'
-        }
-      }
-    })
-  </script>
 
 </head>
 
@@ -47,17 +34,17 @@
           <a href="javascript:;">
             <span class="glyphicon glyphicon-list"></span> 分类商品
           </a>
-          <div style="display: block" class="child">
+          <div class="child">
             <a href="first.html">
               一级分类
             </a>
-            <a class="active" href="second.html">
+            <a href="second.html">
               二级分类
             </a>
           </div>
         </li>
         <li>
-          <a href="product.html">
+          <a class="active" href="product.html">
             <span class="glyphicon glyphicon-tags"></span> 商品管理
           </a>
         </li>
@@ -80,11 +67,8 @@
         <li>
           <a href="index.html">管理系统</a>
         </li>
-        <li>
-          <a href="#">分类管理</a>
-        </li>
         <li class="active">
-          二级分类
+          商品管理
         </li>
       </ol>
       <div class="lt_content">
@@ -94,9 +78,12 @@
           <thead>
             <tr>
               <th width='10%'>序号</th>
-              <th width='30%'>一级分类名称</th>
-              <th width='30%'>二级分类名称</th>
-              <th width='30%'>二级分类LOGO</th>
+              <th width='25%'>商品名称</th>
+              <th width='25%'>商品描述</th>
+              <th width='10%'>商品库存</th>
+              <th width='10%'>商品尺寸</th>
+              <th width='10%'>商品状态</th>
+              <th width='10%'>商品操作</th>
             </tr>
           </thead>
           <tbody>
@@ -112,8 +99,8 @@
 
   </div>
   <!-- 退出登录模态框 -->
-  <div class="modal fade" id="logout" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
+  <div class="modal fade" id="logout" tabindex="-1">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -135,42 +122,58 @@
 
   <!-- 添加分类模态框 -->
   <div class="modal fade" id="addModal" tabindex="-1">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">添加二级分类</h4>
+          <h4 class="modal-title">添加商品</h4>
         </div>
         <form>
           <div class="modal-body">
             <div class="form-group">
-              <input type="hidden" name="categoryId">
+              <input type="hidden" name="brandId">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                  <span class="dropdown_text">请选择</span>
+                  <span class="dropdown_text">请选择二级分类</span>
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
+                  <!-- 啃啃 -->
                 </ul>
               </div>
             </div>
 
             <div class="form-group">
-              <input name="brandName" type="text" class="form-control" placeholder="请输入二级分类名称">
+              <input name="proName" type="text" class="form-control" placeholder="请输入商品名称">
+            </div>
+            <div class="form-group">
+              <textarea name="proDesc" rows="3" class="form-control" placeholder="请输入商品描述"></textarea>
+            </div>
+            <div class="form-group">
+              <input name="num" type="text" class="form-control" placeholder="请输入商品库存">
+            </div>
+            <div class="form-group">
+              <input name="size" type="text" class="form-control" placeholder="请输入商品尺码">
+            </div>
+            <div class="form-group">
+              <input name="oldPrice" type="text" class="form-control" placeholder="请输入商品原价">
+            </div>
+            <div class="form-group">
+              <input name="price" type="text" class="form-control" placeholder="请输入商品价格">
             </div>
 
             <div class="form-group">
               <label for="fileupload" class="btn btn-default">上传图片</label>
-              <input type="file" id="fileupload" class="hidden" name="pic1" data-url="/category/addSecondCategoryPic">
+              <input type="file" id="fileupload" class="hidden" name="pic1" data-url="/category/addSecondCategoryPic" multiple>
             </div>
             <div class="form-group img_box">
-              <img src="images/none.png" width="100" height="100">
+              
               <input type="hidden" name="brandLogo">
             </div>
             <div class="form-group">
-              <input type="hidden" name="hot" value="1">
+              <input type="hidden" name="statu" value="1">
             </div>
 
           </div>
@@ -186,11 +189,14 @@
   <script type="text/html" id="tpl">
     {{each rows v i}}
     <tr>
-      <td>{{(page - 1) * size + 1 + i}}</td>
-      <td>{{v.categoryName}}</td>
-      <td>{{v.brandName}}</td>
+      <td>{{ (page - 1) * size + 1 + i}}</td>
+      <td>{{ v.proName }}</td>
+      <td>{{ v.proDesc }}</td>
+      <td>{{ v.num }}</td>
+      <td>{{ v.size }}</td>
+      <td>{{ v.statu == 1 ? '正常' : '下架' }}</td>
       <td>
-        <img src="{{v.brandLogo? v.brandLogo:'images/default.png'}}" alt="" width='50' height="32">
+        <button class="btn btn-danger btn-sm">下架</button>
       </td>
     </tr>
     {{/each}}
@@ -198,22 +204,16 @@
   <script type="text/html" id="tpl02">
     {{each rows v i}}
     <li>
-      <a data-id='{{v.id}}' tabindex="-1" href="#">{{v.categoryName}}</a>
+      <a data-id="{{v.id}}" href="javascript:;">{{v.brandName}}</a>
     </li>
     {{/each}}
   </script>
 
-  <script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
-  <script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/nprogress/nprogress.js"></script>
-  <script src="lib/artTemplate/template-web.js"></script>
-  <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-  <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/second.js"></script>
+  
 
-
+  <script src="lib/requirejs/require.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/product.js"></script>
 
   <script>
     // $('form').on('click', function (e) {

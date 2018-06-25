@@ -4,7 +4,7 @@ $(function () {
   // 注册下拉事件
   mui.init({
     pullRefresh: {
-      container: ".mui-scroll",
+      container: ".mui-scroll-wrapper",
       down: {
         auto: true,
         callback: function () {
@@ -15,10 +15,13 @@ $(function () {
                 location.href = 'login.html?back=' + location.href;
               }
 
-              $('.mui-table-view').html(template('tpl', {
-                rows: info
-              }))
-              mui('.mui-scroll').pullRefresh().endPulldownToRefresh();
+              $('.mui-table-view').html(template('tpl', {rows: info}))
+              mui(".mui-scroll-wrapper").pullRefresh().endPulldownToRefresh();
+
+              // mui('.mui-scroll-wrapper').scroll({
+              //   indicators: false, 
+              // });
+
             }
           })
         }
@@ -27,7 +30,7 @@ $(function () {
     }
   });
 
-  mui('.mui-scroll').pullRefresh().pulldownLoading()
+  mui(".mui-scroll-wrapper").pullRefresh().endPulldownToRefresh();
 
   // 注册删除事件
   $('.mui-scroll').on('tap', '.btn_delete', function () {
@@ -45,7 +48,7 @@ $(function () {
             console.log(info);
 
             if (info.success) {
-              mui('.mui-scroll').pullRefresh().pulldownLoading()
+              mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading()
             }
           }
         })
@@ -89,7 +92,7 @@ $(function () {
           },
           success: function (info) {
             if (info.success) {
-              mui('.mui-scroll').pullRefresh().pulldownLoading();
+              mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
             }
           }
         })
